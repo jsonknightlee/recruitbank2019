@@ -1,7 +1,85 @@
 doctype html
-html
+html(lang='en')
+  block vars        
   head
-    title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
-  body
-    block content
+    title #{title}
+
+    
+    
+    
+    
+    link(href='/stylesheets/style.css', rel='stylesheet')
+    link(href='/stylesheets/application.css' rel='stylesheet')
+    link(href='/stylesheets/toolkit.css' rel='stylesheet')
+    link(href='https://fonts.googleapis.com/icon?family=Material+Icons', rel='stylesheet')
+    link(href='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js' type='javascript')
+    link(href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600' rel='stylesheet' type='text/css')
+    
+
+  body.with-top-navbar.reload
+    .growl#id-growl
+      nav.navbar.navbar-toggleable-sm.fixed-top.navbar-inverse.bg-primary.app-navbar
+        .navbar-header
+        button.navbar-toggler.navbar-toggler-right.hidden-md-up(type='button', data-toggle='collapse', data-target='#navbarResponsive', 
+                aria-controls='navbarResponsive', aria-expanded='false', aria-label='Toggle Navigation')
+        span.navbar-toggler-icon
+        a.navbar-brand(href='#') Recruitbank
+        .collapse.navbar-collapse#navbarResponsive
+          ul.navbar-nav.mr-auto
+            if user
+              li.dropdown
+                a.dropdown-toggle(href='/' data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true")
+                  img.user-toggle(src='/images/avatar-dhg.png')
+                  span.caret
+                    ul.dropdown-menu.title
+                      h5.petswitch-title.text-center Petswitch
+                        li
+                          a(href='/')            
+              li.nav-item.active
+                a.nav-link(href='/') Home
+              li.nav-item
+                a.nav-link(href='/pets/add') Add Pets
+              li.nav-item
+                a.nav-link(href='/posts/add') Profile
+              li.nav-item
+                a.nav-link(href='/categories/add') Add Categories             
+              li.nav-item.hidden-md-up
+                a.nav-link(href='/notifications/notifs.html') Notifications
+              li.nav-item.hidden-md-up
+                a.nav-link(data-action='growl') Growl 
+              li.nav-item.hidden-md-up
+                a.nav-link(href='/users/logout') Logout 
+          form.form-inline.float-right.hidden-sm-down(action='/search', method='post')
+              input.form-control(type='text', data-action='growl', placeholder='Search')  
+          ul.nav.navbar-nav.float-right.mr-0.hidden-sm-down(##js-popoverContent)
+            li.nav-item
+              a.app-notifications.nav-link(href='/notifications/notifs.html')
+                span.icon.icon-bell
+            li.nav-item.ml-2
+              button.btn.btn-default.navbar-btn.navbar-btn-avatar(data-toggle='popover')
+                if (typeof user !== 'undefined')
+                  img.user(src='/images/#{user.profileimage}')
+                else
+                  img.user(src='/images/yappetlogo.jpg')
+          ul#js-popoverContent.nav.navbar-nav.hidden-xs-up
+            li.nav-item
+              a.nav-link(href='/users/userprofile') Profile
+            li.nav-item
+              a.nav-link(href='/users/login/') Logout
+  .container-fluid
+
+  block content
+    
+    
+    script(src='/javascripts/bootstrap.js')
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js')
+    script(src="/javascripts/jquery.min.js")
+    script(src="/javascripts/tether.min.js")
+    script(src="/javascripts/chart.js")
+    script(src="/javascripts/toolkit.js")
+    script(src="/javascripts/application.js")
+    script(src='/javascripts/post.js')
+    script(src='/javascripts/loader.js')
+    script(src='/javascripts/modal.js')
+    script(src='/javascripts/barks.js')
+    script(src='/javascripts/barksremove.js')

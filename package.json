@@ -11,6 +11,20 @@
     "express": "~4.16.0",
     "http-errors": "~1.6.2",
     "morgan": "~1.9.0",
-    "pug": "2.0.0-beta11"
+    "mssql": "^4.2.1",
+    "multer": "*",
+    "passport": "*",
+    "passport-http": "*",
+    "passport-local": "*",
+    "pug": "^2.0.3",
+    "moment": "*",
+    "connect-flash": "*",
+    "cors": "^2.8.4",
+    "express-messages": "*",
+    "express-paginate": "^1.0.0",
+    "express-session": "^1.15.6",
+    "express-validator": "*",
+    "async": "^2.6.1",
+    "bcryptjs": "^2.4.3"
   }
 }
